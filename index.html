@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#d9ddd4" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="./" aria-label="cute global clock web">
+        <span class="brand-icon" aria-hidden="true">◷</span>
+      </a>
+      <div class="header-right">
+        <span id="local-date"></span>
+        <button class="primary" id="add">＋ 시계 추가</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="desktop-toolbar">
+        <div>
+          <span id="saved"></span>
+        </div>
+      </div>
+
+      <section id="desktop" aria-label="친구들의 시계 바탕화면">
+        <div id="empty" hidden>
+          <button id="empty-add" class="primary">첫 시계 만들기</button>
+        </div>
+      </section>
+
+
+    </main>
+
+    <div class="toast" id="toast" role="status" hidden></div>
+
+    <dialog id="settings" aria-labelledby="dialog-title">
+      <div class="dialog-bar">
+        <span id="dialog-title">새로운 시계 만들기</span>
+        <button id="close" aria-label="설정 닫기">×</button>
+      </div>
+      <form id="settings-form">
+        <label>
+          도시 / 시간대
+          <select id="zone" required></select>
+        </label>
+        <label>
+          닉네임
+          <input
+            id="nickname"
+            required
+            maxlength="16"
+            placeholder="이름"
+            autocomplete="off"
+          />
+        </label>
+        <label>
+          사진 <span class="optional">선택 사항</span>
+          <input
+            type="file"
+            id="photo"
+            accept="image/jpeg,image/png,image/webp,image/gif"
+          />
+          <small>jpg, png, webp, gif · 최대 5MB</small>
+        </label>
+        <div id="photo-state"></div>
+        <label>
+          상태메세지
+          <input id="message" maxlength="60" placeholder="난 잔다" />
+        </label>
+        <p id="form-error" role="alert"></p>
+        <div class="dialog-actions">
+          <button type="button" id="cancel">취소</button>
+          <button class="primary" type="submit" id="submit">시계 만들기</button>
+        </div>
+      </form>
+    </dialog>
+
+    <noscript>
+      <p>실시간 시계와 창 추가 기능을 사용하려면 JavaScript를 켜 주세요.</p>
+    </noscript>
+    <script src="app.js"></script>
+  </body>
+</html>
